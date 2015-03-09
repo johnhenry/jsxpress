@@ -1,0 +1,32 @@
+{
+  "name": "jsxpress",
+  "version": "0.0.0",
+  "description": "Server-Side JSX Router",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^0.12.2",
+    "route-pattern": "^0.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnhenry/jsxpress.git"
+  },
+  "keywords": [
+    "jsx",
+    "express",
+    "react",
+    "middleware",
+    "server",
+    "isomorphic"
+  ],
+  "author": "John Henry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnhenry/jsxpress/issues"
+  },
+  "homepage": "https://github.com/johnhenry/jsxpress"
+}
