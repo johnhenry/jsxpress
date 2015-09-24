@@ -44,7 +44,7 @@ app.get('*', jsXpress(
 
 Notice the __renderat__ attribute. It's set to '/', which means that the given component will render at the root of your application. If you were to leave this out, you application would not render.
 
-If you wanted to have a choice between pages, you could put two element with the __renderat__ attribute set side by side. Since you react requires adjacent components to be nexted, you'll have to wrap them in another element, but as long as it doesn't have a __renderat__ attribute, it won't render.
+If you wanted to have a choice between pages, you could put two element with the __renderat__ attribute set side by side. Since you react requires adjacent components to be nested, you'll have to wrap them in another element, but as long as it doesn't have a __renderat__ attribute, it won't render.
 
 ```js
 app.get('*', jsXpress(
@@ -79,6 +79,7 @@ app.get('*', jsXpress(
         </body>
       </html>
     </jsXpress.NoRender>
+    )
 );
 ```
 ##Using Custom Components
@@ -90,7 +91,7 @@ class SignInPage extends React.Component{
   constructor(){
   }
   render(){
-    <html renderat='/signin'>
+    return <html renderat='/signin'>
       <body>
         Sign In
       </body>
@@ -107,6 +108,7 @@ app.get('*', jsXpress(
       </html>
       <SignInPage renderat='signin' />
     </jsXpress.NoRender>
+    )
 );
 ```
 
@@ -126,7 +128,7 @@ class WelcomePage extends React.Component{
     }
   }
   render(){
-    <html renderat='/signin'>
+    return <html renderat='/signin'>
       <body>
         {this.state.message}
       </body>
@@ -141,6 +143,7 @@ app.get('*', jsXpress(
       <WelcomePage renderat= '/' prerender={preRenderer}/>
       <SignInPage renderat='signin' />
     </jsXpress.NoRender>
+    )
 );
 
 ```
@@ -155,7 +158,7 @@ class AboutPage extends React.Component{
     }
   }
   render(){
-    <html renderat='/signin'>
+    return <html renderat='/signin'>
       <body>
         {this.state.message}
       </body>
@@ -173,6 +176,7 @@ app.get('*', jsXpress(
         <AboutPage renderat='whatwedo' text='What we do...'></AboutPage>
       </jsXpress.NoRender>
     </jsXpress.NoRender>
+    )
 );
 
 ```
@@ -202,6 +206,7 @@ app.get('*', jsXpress(
       </jsXpress.NoRender>
     </jsXpress.NoRender>,
     {routeParams:true}
+    )
 );
 ```
 Learn a bit about yourself by visiting /about/<your name>...
@@ -240,6 +245,7 @@ app.get('*', jsXpress(
       </jsXpress.NoRender>
     </jsXpress.NoRender>,
     {routeParams:true}
+    )
 );
 ```
 
@@ -266,6 +272,7 @@ app.post('*', jsXpress(
       routeParams : true,
       renderThenable : true
     }
+    )
 );
 ```
 ##Asynchronicity
@@ -299,6 +306,7 @@ app.post('*', jsXpress(
       routeParams : true,
       renderThenable : true
     }
+    )
 );
 ```
 ##Dynamic vs Static
@@ -322,6 +330,7 @@ app.post('*', jsXpress(
       renderThenable : true,
       dynamic:true
     }
+    )
 );
 ```
 ##Todo
@@ -366,7 +375,7 @@ class WelcomePage extends React.Component{
     }
   }
   render(){
-    <html renderat='/signin'>
+    return <html renderat='/signin'>
       <body>
         {this.state.message}
       </body>
@@ -377,7 +386,7 @@ class SignInPage extends React.Component{
   constructor(){
   }
   render(){
-    <html renderat='/signin'>
+    return <html renderat='/signin'>
       <body>
         Sign In
       </body>
@@ -391,7 +400,7 @@ class AboutPage extends React.Component{
     }
   }
   render(){
-    <html renderat='/signin'>
+    return <html renderat='/signin'>
       <body>
         {this.state.message}
       </body>
@@ -416,6 +425,7 @@ app.post('*', jsXpress(
       renderThenable : true,
       dynamic:true
     }
+    )
 );
 app.listen(8080);
 ```
